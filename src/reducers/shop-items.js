@@ -1,0 +1,28 @@
+export default function(){
+    return([
+        {
+            id:1,
+            name:"a",
+            price:1000,
+            quantity:10
+        },
+        {
+            id:2,
+            name:"b",
+            price:2000,
+            quantity:5
+        },
+        {
+            id:3,
+            name:"c",
+            price:300,
+            quantity:4
+        },
+        {
+            id:4,
+            name:"d",
+            price:700,
+            quantity:7
+        }
+    ]);
+}
