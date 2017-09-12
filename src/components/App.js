@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../index.css';
 import ItemList from '../containers/item-list'
 import CartList from '../containers/cart-list';
 import PriceFilter from '../containers/price-filter';
@@ -8,9 +8,9 @@ class App extends Component {
         return (
             <div>
             <PriceFilter/>
-            <h1>ITEMS</h1>
+            <h2>ITEMS</h2>
             <ItemList/>
-            <h1>CART</h1>
+            <h2>YOUR   CART</h2>
             <CartList/>
             
             </div>

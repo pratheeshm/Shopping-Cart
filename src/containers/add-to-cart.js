@@ -1,23 +1,28 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux'; 
 import ItemSelected from '../actions/item-selected';
-import '../index.css'
+import {Button, Icon} from 'react-materialize'
+import '../index.css';
+
 class AddToCart extends Component{
 
     render(){
         if(this.props.item.quantity>0){
         return(<div className="quantity-container">
-                <div>{this.props.item.quantity} Nos</div>
-                <button className="add-button"onClick={()=>{
+                <div className="indigo-text text-darken-4">{this.props.item.quantity} Nos</div>
+                <Button waves='light'onClick={()=>{
               
                     this.props.submit();
-                }}>ADD</button>
+                }}>ADD<Icon right>add_shopping_cart
+</Icon></Button>
             </div>);
     }
     else{
         return(
-            <div className="quantity-container">
-            <div className="outof-stock">Out Of Stock</div>
+            <div className="quantity-container"> 
+            <div className="red-text">0 Nos</div>
+             <Button waves='light'disabled="disabled">ADD<Icon right>add_shopping_cart
+</Icon></Button>
         </div>
         );
     }

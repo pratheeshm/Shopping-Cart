@@ -1,23 +1,22 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import AddToCart from './add-to-cart'; 
-import '../item-list.css'
 class ItemList extends Component{
    
     getItems() {
         return this.props.items.map((item)=>{
             if(item.price<=this.props.PriceRange.max&&item.price>=this.props.PriceRange.min)
-            return(<li key={item.id}>
-                <div>{item.name}</div>
+            return(<li key={item.id} className="collection-item">
+                <div className="teal-text text-darken-4">{item.name}</div>
                 <div>
-                <div>Rs:{item.price}</div>
+                <div className="teal-text text-darken-4">Rs:{item.price}</div>
                 </div>
                 <AddToCart item={item} />
             </li>)
         });
     }
     render(){
-        return(<ul>{this.getItems()}
+        return(<ul className="collection">{this.getItems()}
             </ul>);
     }
 

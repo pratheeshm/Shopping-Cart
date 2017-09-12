@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Button, Icon,Input} from 'react-materialize'
 import priceFilterClicked from '../actions/price-filter-selected';
 import '../index.css'
 class PriceFilter extends Component{
@@ -29,13 +30,12 @@ return this.fromValue;
    }
     render(){
         return(
+            <div className="filter-container" >
             <div className="filter-body">
-            <div className="filter-container">
-            <label>Min</label>
-            <input type="number" min="0" max="100000" step="100"  onChange={this.setFrom}/>
-            <label>Max</label>            
-            <input type="number" min="0" max="100000" step="100" onChange={this.setTo}/>
-            <button onClick={()=>this.props.priceFilter(this.props.items,this.getFrom(),this.getTo())}>Filter</button>
+                    <Input type="number" placeholder="min" min="0" max="100000" step="100"  onChange={this.setFrom}/>          
+            <Input type="number" min="0" placeholder="max"max="100000" step="100" onChange={this.setTo}/>
+            
+            <Button onClick={()=>this.props.priceFilter(this.props.items,this.getFrom(),this.getTo())}>Filter</Button>
             </div>
             </div>
         );

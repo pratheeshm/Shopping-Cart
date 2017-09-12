@@ -1,26 +1,26 @@
 var arr=[
         {
             id:1,
-            name:"a",
-            price:1000,
+            name:"HP Laptop",
+            price:33000,
             quantity:10
         },
         {
             id:2,
-            name:"b",
-            price:2000,
+            name:"Samsung G",
+            price:12000,
             quantity:5
         },
         {
             id:3,
-            name:"c",
-            price:300,
+            name:"Backpack",
+            price:500,
             quantity:4
         },
         {
             id:4,
-            name:"d",
-            price:700,
+            name:"FastTrack",
+            price:1000,
             quantity:7
         }
     ];
