@@ -1,5 +1,4 @@
-export default function(){
-    return([
+var arr=[
         {
             id:1,
             name:"a",
@@ -24,5 +23,22 @@ export default function(){
             price:700,
             quantity:7
         }
-    ]);
-}
+    ];
+
+export default function(state=arr,action){
+    switch(action.type){
+        
+        case "ITEM_SELECTED": 
+            let newState = [...state];
+          for(var i=0;i<newState.length;i++){
+              if(newState[i].id==action.payload.id){
+                  console.log("match")
+                newState[i].quantity=newState[i].quantity-1;
+              }
+          }
+        return newState;
+       
+        default:return state;
+        
+           }
+} 
