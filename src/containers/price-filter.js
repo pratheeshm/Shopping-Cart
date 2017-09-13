@@ -7,7 +7,7 @@ class PriceFilter extends Component{
     constructor(){
         super();
         this.fromValue=0;
-        this.toValue=0;
+        this.toValue=100000;
         this.setFrom=this.setFrom.bind(this);
         this.getFrom=this.getFrom.bind(this);
         this.setTo=this.setTo.bind(this);
@@ -15,13 +15,23 @@ class PriceFilter extends Component{
         
     }
    setFrom(e){
+       if(e.target.value!=""){
     this.fromValue=e.target.value;
+       }
+       else{
+        this.fromValue=0;        
+       }
    }
    getFrom(){
 return this.fromValue;
    }
    setTo(e){
+       if(e.target.value!=""){
     this.toValue=e.target.value;
+       }
+       else{
+        this.toValue=100000;        
+       }
     
    }
    getTo(){
@@ -32,8 +42,8 @@ return this.fromValue;
         return(
             <div className="filter-container" >
             <div className="filter-body">
-                    <Input type="number" placeholder="min" min="0" max="100000" step="100"  onChange={this.setFrom}/>          
-            <Input type="number" min="0" placeholder="max"max="100000" step="100" onChange={this.setTo}/>
+                    <Input defaultValue="0" type="number" placeholder="min" min="0" max="100000" step="100"  onChange={this.setFrom}/>          
+            <Input defaultValue="100000" type="number" min="0" placeholder="max"max="100000" step="100" onChange={this.setTo}/>
             
             <Button onClick={()=>this.props.priceFilter(this.props.items,this.getFrom(),this.getTo())}>Filter</Button>
             </div>
