@@ -79,3 +79,8 @@ h2{
   height: 100px;
   line-height: 100px;
 }
+.price{
+  font-size: 40px;
+  text-align: center;
+  margin-top: 10%;
+}
