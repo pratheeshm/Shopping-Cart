@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {Button, Icon,Input} from 'react-materialize'
+import {Button,Input} from 'react-materialize'
 import priceFilterClicked from '../actions/price-filter-selected';
+import axios from 'axios';
 import '../index.css'
 class PriceFilter extends Component{
     constructor(){
@@ -15,7 +16,7 @@ class PriceFilter extends Component{
         
     }
    setFrom(e){
-       if(e.target.value!=""){
+       if(e.target.value!==""){
     this.fromValue=e.target.value;
        }
        else{
@@ -26,7 +27,7 @@ class PriceFilter extends Component{
 return this.fromValue;
    }
    setTo(e){
-       if(e.target.value!=""){
+       if(e.target.value!==""){
     this.toValue=e.target.value;
        }
        else{
@@ -54,7 +55,14 @@ return this.fromValue;
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         priceFilter: (items,from,to) => {
-            dispatch(priceFilterClicked(items,from,to))
+            axios.get("http://10.4.6.34:4000/productListing?min_price="+from+"&max_price="+to)
+            .then(function(res){
+                dispatch(priceFilterClicked(res.data.result))
+                
+            })
+            .catch(function(err){
+                console.log(err);
+            });
         }
  }
 }

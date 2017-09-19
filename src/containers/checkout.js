@@ -3,12 +3,16 @@ import {connect} from 'react-redux';
 import checkoutClicked from '../actions/checkout-clicked'
 import {Button, Icon} from 'react-materialize'
 import '../index.css';
+import {Link} from 'react-router-dom'
 class Checkout extends Component{
-   
 render(){
     return(
         <div className="checkout-container">
-        <Button onClick={()=>this.props.dispatch1()}>Checkout<Icon right>attach_money</Icon></Button>
+        <Link to="/checkout">
+        <Button onClick={()=>this.props.dispatch1()} >Checkout<Icon right>attach_money</Icon>
+      
+        </Button>
+        </Link>
         <div className="black-text">Rs: {this.props.total}</div>
         </div>
     );

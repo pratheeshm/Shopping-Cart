@@ -5,7 +5,7 @@ export default function(state=[],action){
         var newState=[...state];
         var a=false;
         for(var i=0;i<newState.length;i++){
-            if(newState[i].id==action.payload.id){
+            if(newState[i].productID===action.payload.productID){
                 newState[i].quantity++;
                 a=true;
             }
@@ -14,7 +14,7 @@ export default function(state=[],action){
         }
         if(!a){
             newState=newState.concat(
-                { id:action.payload.id,name:action.payload.name,price:action.payload.price,quantity:1}
+                { productID:action.payload.productID,name:action.payload.name,price:action.payload.price,quantity:1}
              );
              
         }

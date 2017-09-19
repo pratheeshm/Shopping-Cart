@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux'; 
 import ItemSelected from '../actions/item-selected';
 import {Button, Icon} from 'react-materialize'
+import axios from 'axios';
 import '../index.css';
 
 class AddToCart extends Component{
@@ -31,6 +32,19 @@ class AddToCart extends Component{
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         submit: () => {
+            axios.post("http://10.4.6.34:4000/add_to_cart",{
+                item:{
+                    name:ownProps.item.name,
+                    price:ownProps.item.price,
+                    quantity:1,
+                    productID:ownProps.item.productID
+                }
+            })
+            .then(function(res){
+            })
+            .catch(function(err){
+            });
+
             dispatch(ItemSelected(ownProps.item))
         }
  }

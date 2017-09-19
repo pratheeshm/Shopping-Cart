@@ -1,9 +1,7 @@
-const priceFilterClicked=function(items,from,to){
+const priceFilterClicked=function(items){
     return{
         type:"PRICE_FILTER_CLICKED",
-        items,
-        from:parseInt(from),
-        to:parseInt(to)
+        items
     };
 }
 
